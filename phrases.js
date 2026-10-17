@@ -9,7 +9,7 @@ function shuffle(items) {
   return result;
 }
 
-const ui = Object.fromEntries(['progress', 'score', 'question', 'source-page', 'answers', 'feedback', 'next', 'restart'].map(id => [id, document.getElementById(id)]));
+const ui = Object.fromEntries(['progress', 'score', 'question', 'answers', 'feedback', 'next', 'restart'].map(id => [id, document.getElementById(id)]));
 let questions, index, correct, answered, locked;
 
 function updateScore() {
@@ -20,7 +20,6 @@ function showQuestion(focus = true) {
   locked = false;
   const question = questions[index];
   ui.progress.textContent = `Phrase ${index + 1} of ${questions.length}`;
-  ui['source-page'].textContent = `From Page ${question.page}`;
   ui.question.textContent = question.es;
   ui.feedback.textContent = '';
   ui.next.hidden = true;

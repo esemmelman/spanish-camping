@@ -111,15 +111,17 @@ for number, filename in [(22, 'index.html'), (23, 'page23.html'), (24, 'page24.h
     text = (root / filename).read_text(encoding='utf-8')
     for es, en in re.findall(r'<p class="es" lang="es">(.*?)</p><p class="en" lang="en"> - (.*?)</p>', text):
         es, en = unescape(es), unescape(en)
+        es = re.sub(r'^(?:Jairo|Mamá):\s*', '', es)
+        en = re.sub(r'^(?:Jairo|Mom):\s*', '', en)
         if es in excluded or es in seen:
             continue
         seen.add(es)
-        questions.append({'es': es, 'en': en, 'page': number})
+        questions.append({'es': es, 'en': en})
 (root / 'phrases-data.js').write_text('const phraseQuestions = ' + json.dumps(questions, ensure_ascii=False, indent=2) + ';\n', encoding='utf-8')
 quiz = source.replace(nav(22), nav('phrases'))
 quiz = quiz.replace('<title>¡Cámping! — Spanish &amp; English</title>', '<title>Phrases Quiz — Spanish &amp; English</title>')
 quiz = re.sub(r'<header>.*?</header>', '''<header>
-    <p class="eyebrow">Practice · Pages 22–24</p>
+    <p class="eyebrow">Spanish → English · Practice</p>
     <h1>Phrases</h1>
     <p class="intro">Choose the English translation. Each answer is scored immediately. Questions and answers are shuffled each time.</p>
   </header>''', quiz, flags=re.S)
@@ -127,7 +129,6 @@ quiz = re.sub(r'<main>.*?</main>', '''<main>
     <p id="progress" class="intro"></p>
     <p id="score" class="intro" aria-live="polite"></p>
     <section class="pair" aria-labelledby="question">
-      <p id="source-page" class="intro"></p>
       <h2 id="question" lang="es" tabindex="-1"></h2>
       <div id="answers" class="answers" aria-label="English translations"></div>
     </section>
@@ -136,7 +137,7 @@ quiz = re.sub(r'<main>.*?</main>', '''<main>
     <button id="restart" class="quiz-button" type="button" hidden>Play again</button>
     <noscript><p class="intro">Enable JavaScript to use the phrases quiz.</p></noscript>
   </main>''', quiz, flags=re.S)
-quiz = re.sub(r'<footer>.*?</footer>', '<footer>Practice phrases from all three textbook pages.</footer>', quiz, flags=re.S)
+quiz = re.sub(r'<footer>.*?</footer>', '<footer>Choose the English translation for each Spanish phrase.</footer>', quiz, flags=re.S)
 quiz = quiz.replace('</style>', '''    .answers { display: grid; gap: 18px; }
     .quiz-button, .answer { font: inherit; font-size: clamp(28px, 4vw, 44px); line-height: 1.35; font-weight: 700; border: 3px solid #173a32; border-radius: 12px; padding: 24px; cursor: pointer; background: #fffef8; color: #173a32; }
     .answer { text-align: left; width: 100%; }
