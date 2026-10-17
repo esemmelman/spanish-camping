@@ -11,6 +11,17 @@ function shuffle(items) {
 
 const ui = Object.fromEntries(['progress', 'score', 'question', 'answers', 'feedback', 'next', 'restart'].map(id => [id, document.getElementById(id)]));
 let questions, index, correct, answered, locked;
+let lastCorrectPosition = -1, positionStreak = 0;
+
+function arrangeAnswers(answer, alternatives) {
+  const positions = [0, 1, 2, 3].filter(position => positionStreak < 2 || position !== lastCorrectPosition);
+  const position = positions[Math.floor(Math.random() * positions.length)];
+  positionStreak = position === lastCorrectPosition ? positionStreak + 1 : 1;
+  lastCorrectPosition = position;
+  const options = shuffle(alternatives).slice(0, 3);
+  options.splice(position, 0, answer);
+  return options;
+}
 
 function updateScore() {
   ui.score.textContent = `Score: ${correct} / ${answered} answered${answered ? ` · ${Math.round(correct / answered * 100)}%` : ''}`;
@@ -26,7 +37,7 @@ function showQuestion(focus = true) {
   ui.restart.hidden = true;
   ui.answers.replaceChildren();
   const alternatives = [...new Set(phraseQuestions.map(q => q.en))].filter(en => en !== question.en);
-  const options = shuffle([question.en, ...shuffle(alternatives).slice(0, 3)]);
+  const options = arrangeAnswers(question.en, alternatives);
   options.forEach(option => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -58,6 +69,8 @@ function showQuestion(focus = true) {
 function start(focus = true) {
   questions = shuffle(phraseQuestions);
   index = correct = answered = 0;
+  lastCorrectPosition = -1;
+  positionStreak = 0;
   updateScore();
   showQuestion(focus);
 }
