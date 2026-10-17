@@ -117,13 +117,19 @@ for number, filename in [(22, 'index.html'), (23, 'page23.html'), (24, 'page24.h
             continue
         seen.add(es)
         questions.append({'es': es, 'en': en})
+# Curated, meaning-aligned groups keep the quiz focused on phrases within sentences.
+questions = []
+for line in (root / 'quiz-phrases.tsv').read_text(encoding='utf-8').splitlines():
+    if line.strip():
+        es, en = line.split('\t')
+        questions.append({'es': es, 'en': en})
 (root / 'phrases-data.js').write_text('const phraseQuestions = ' + json.dumps(questions, ensure_ascii=False, indent=2) + ';\n', encoding='utf-8')
 quiz = source.replace(nav(22), nav('phrases'))
 quiz = quiz.replace('<title>¡Cámping! — Spanish &amp; English</title>', '<title>Phrases Quiz — Spanish &amp; English</title>')
 quiz = re.sub(r'<header>.*?</header>', '''<header>
     <p class="eyebrow">Spanish → English · Practice</p>
     <h1>Phrases</h1>
-    <p class="intro">Choose the English translation. Each answer is scored immediately. Questions and answers are shuffled each time.</p>
+    <p class="intro">Practice short phrase groups from within sentences. Choose the English translation. Each answer is scored immediately. Questions and answers are shuffled each time.</p>
   </header>''', quiz, flags=re.S)
 quiz = re.sub(r'<main>.*?</main>', '''<main>
     <p id="progress" class="intro"></p>

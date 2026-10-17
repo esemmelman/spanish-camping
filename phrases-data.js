@@ -1,15 +1,47 @@
 const phraseQuestions = [
   {
-    "es": "Ir de cámping es una buena manera de explorar la naturaleza.",
-    "en": "Going camping is a good way to explore nature."
+    "es": "Ir de cámping",
+    "en": "going camping"
   },
   {
-    "es": "Sin embargo, antes de ir al bosque, valle o desierto es necesario tener el equipo apropiado.",
-    "en": "However, before going to the forest, valley, or desert, you need to have the proper equipment."
+    "es": "una buena manera",
+    "en": "a good way"
   },
   {
-    "es": "En la actualidad, la tecnología ofrece opciones increíbles.",
-    "en": "Nowadays, technology offers incredible options."
+    "es": "de explorar la naturaleza",
+    "en": "to explore nature"
+  },
+  {
+    "es": "Sin embargo",
+    "en": "however"
+  },
+  {
+    "es": "antes de ir al bosque",
+    "en": "before going to the forest"
+  },
+  {
+    "es": "valle o desierto",
+    "en": "valley or desert"
+  },
+  {
+    "es": "es necesario tener",
+    "en": "it is necessary to have"
+  },
+  {
+    "es": "el equipo apropiado",
+    "en": "the proper equipment"
+  },
+  {
+    "es": "En la actualidad",
+    "en": "nowadays"
+  },
+  {
+    "es": "la tecnología ofrece",
+    "en": "technology offers"
+  },
+  {
+    "es": "opciones increíbles",
+    "en": "incredible options"
   },
   {
     "es": "el repelente de insectos",
@@ -48,175 +80,403 @@ const phraseQuestions = [
     "en": "the sleeping bag"
   },
   {
-    "es": "Cuando vas de cámping, puedes llevar una linterna con radio y un cargador (charger) para tu teléfono, una tableta con brújula, termómetro y GPS o unos binoculares con grabadora.",
-    "en": "When you go camping, you can take a flashlight with a radio and a charger for your phone, a tablet with a compass, thermometer, and GPS, or binoculars with a recorder."
+    "es": "Cuando vas de cámping",
+    "en": "when you go camping"
   },
   {
-    "es": "Así puedes grabar un video de todo lo que ves.",
-    "en": "That way, you can record a video of everything you see."
+    "es": "puedes llevar",
+    "en": "you can take"
   },
   {
-    "es": "Todos los años miles de personas van de cámping a las sierras chilenas y lo pasan muy bien.",
-    "en": "Every year, thousands of people go camping in the Chilean mountain ranges and have a great time."
+    "es": "una linterna con radio",
+    "en": "a flashlight with a radio"
   },
   {
-    "es": "¡Los paisajes son hermosos!",
-    "en": "The landscapes are beautiful!"
+    "es": "un cargador para tu teléfono",
+    "en": "a charger for your phone"
   },
   {
-    "es": "Éstas son unas fotos de una familia y sus maravillosas vacaciones.",
-    "en": "These are some photos of a family and their wonderful vacation."
+    "es": "una tableta con brújula",
+    "en": "a tablet with a compass"
+  },
+  {
+    "es": "termómetro y GPS",
+    "en": "thermometer and GPS"
+  },
+  {
+    "es": "unos binoculares con grabadora",
+    "en": "binoculars with a recorder"
+  },
+  {
+    "es": "Así puedes grabar",
+    "en": "that way, you can record"
+  },
+  {
+    "es": "un video de todo lo que ves",
+    "en": "a video of everything you see"
+  },
+  {
+    "es": "Todos los años",
+    "en": "every year"
+  },
+  {
+    "es": "miles de personas",
+    "en": "thousands of people"
+  },
+  {
+    "es": "van de cámping",
+    "en": "they go camping"
+  },
+  {
+    "es": "a las sierras chilenas",
+    "en": "to the Chilean mountain ranges"
+  },
+  {
+    "es": "lo pasan muy bien",
+    "en": "they have a great time"
+  },
+  {
+    "es": "Los paisajes",
+    "en": "the landscapes"
+  },
+  {
+    "es": "son hermosos",
+    "en": "they are beautiful"
+  },
+  {
+    "es": "Éstas son unas fotos",
+    "en": "these are some photos"
+  },
+  {
+    "es": "de una familia",
+    "en": "of a family"
+  },
+  {
+    "es": "sus maravillosas vacaciones",
+    "en": "their wonderful vacation"
   },
   {
     "es": "la naturaleza",
     "en": "nature"
   },
   {
-    "es": "Al amanecer, mi familia y yo dimos un paseo a caballo.",
-    "en": "At dawn, my family and I went for a horseback ride."
+    "es": "Al amanecer",
+    "en": "at dawn"
   },
   {
-    "es": "Durante nuestro viaje nos gustaba escalar rocas.",
-    "en": "During our trip, we enjoyed rock climbing."
+    "es": "mi familia y yo",
+    "en": "my family and I"
   },
   {
-    "es": "Al anochecer las estrellas se veían muy claras y cercanas.",
-    "en": "At nightfall, the stars looked very clear and close."
+    "es": "dimos un paseo a caballo",
+    "en": "we went for a horseback ride"
   },
   {
-    "es": "En una hoja de papel escribe los números del 1 al 6.",
-    "en": "On a sheet of paper, write the numbers from 1 to 6."
+    "es": "Durante nuestro viaje",
+    "en": "during our trip"
   },
   {
-    "es": "Vas a escuchar a unos jóvenes hablar sobre el equipo de cámping.",
-    "en": "You are going to listen to some young people talk about camping equipment."
+    "es": "nos gustaba",
+    "en": "we enjoyed"
   },
   {
-    "es": "Escucha cada frase y escribe si es lógica o ilógica.",
-    "en": "Listen to each statement and write whether it is logical or illogical."
+    "es": "escalar rocas",
+    "en": "rock climbing"
   },
   {
-    "es": "En una hoja de papel escribe los números del 1 al 5.",
-    "en": "On a sheet of paper, write the numbers from 1 to 5."
+    "es": "Al anochecer",
+    "en": "at nightfall"
   },
   {
-    "es": "Escucha cada frase y escribe C (cierta) o F (falsa), según las fotos.",
-    "en": "Listen to each statement and write C (true) or F (false), based on the photos."
+    "es": "las estrellas",
+    "en": "the stars"
   },
   {
-    "es": "Vas a oír cada frase dos veces.",
-    "en": "You will hear each statement twice."
+    "es": "se veían",
+    "en": "they looked"
   },
   {
-    "es": "Jairo le cuenta a su mamá cómo le fue en su paseo por la sierra.",
-    "en": "Jairo tells his mom how his trip through the mountains went."
+    "es": "muy claras y cercanas",
+    "en": "very clear and close"
   },
   {
-    "es": "Hola hijo, ¿qué tal te fue en tu paseo?",
-    "en": "Hi, son. How was your trip?"
+    "es": "En una hoja de papel",
+    "en": "on a sheet of paper"
   },
   {
-    "es": "Nos divertimos mucho, mami.",
-    "en": "We had a lot of fun, Mom."
+    "es": "escribe los números",
+    "en": "write the numbers"
   },
   {
-    "es": "¡Pero no te imaginas lo que nos pasó!",
-    "en": "But you can’t imagine what happened to us!"
+    "es": "del 1 al 6",
+    "en": "from 1 to 6"
   },
   {
-    "es": "¿Qué sucedió?",
-    "en": "What happened?"
+    "es": "Vas a escuchar",
+    "en": "you are going to listen"
   },
   {
-    "es": "Cuando estábamos escalando una montaña, vimos relámpagos y oímos un trueno.",
-    "en": "While we were climbing a mountain, we saw lightning and heard a clap of thunder."
+    "es": "a unos jóvenes",
+    "en": "to some young people"
   },
   {
-    "es": "¡Luego comenzó a caer granizo!",
-    "en": "Then it started to hail!"
+    "es": "hablar sobre el equipo de cámping",
+    "en": "talk about camping equipment"
   },
   {
-    "es": "¡No me digas!",
-    "en": "You don’t say!"
+    "es": "Escucha cada frase",
+    "en": "listen to each statement"
   },
   {
-    "es": "¿Y qué hicieron?",
-    "en": "And what did you do?"
+    "es": "escribe si es lógica o ilógica",
+    "en": "write whether it is logical or illogical"
   },
   {
-    "es": "Nos refugiamos en una caverna.",
-    "en": "We took shelter in a cave."
+    "es": "del 1 al 5",
+    "en": "from 1 to 5"
   },
   {
-    "es": "Una vez allí, nos sentamos a hablar mientras pasaba el mal tiempo.",
-    "en": "Once there, we sat down to talk while the bad weather passed."
+    "es": "cierta o falsa",
+    "en": "true or false"
   },
   {
-    "es": "Nos impresionó el tamaño del granizo.",
-    "en": "We were amazed by the size of the hailstones."
+    "es": "según las fotos",
+    "en": "based on the photos"
   },
   {
-    "es": "¡Parecían bolas de golf!",
-    "en": "They looked like golf balls!"
+    "es": "Vas a oír",
+    "en": "you are going to hear"
   },
   {
-    "es": "¡Qué bueno que encontraron refugio!",
-    "en": "How good that you found shelter!"
+    "es": "cada frase dos veces",
+    "en": "each statement twice"
   },
   {
-    "es": "Sí, pero ahí no terminó todo.",
-    "en": "Yes, but that wasn’t the end of it."
+    "es": "le cuenta a su mamá",
+    "en": "tells his mom"
   },
   {
-    "es": "Cuando dejó de llover salimos de la caverna y comenzamos a bajar la montaña.",
-    "en": "When it stopped raining, we left the cave and began to go down the mountain."
+    "es": "cómo le fue",
+    "en": "how it went for him"
   },
   {
-    "es": "El suelo estaba mojado y Miguel perdió el equilibrio, pero no se cayó.",
-    "en": "The ground was wet, and Miguel lost his balance, but he didn’t fall."
+    "es": "en su paseo por la sierra",
+    "en": "on his trip through the mountains"
   },
   {
-    "es": "¡Ay, qué bien!",
-    "en": "Oh, that’s good!"
+    "es": "qué tal te fue",
+    "en": "how did it go for you"
   },
   {
-    "es": "¿Y entonces qué pasó?",
-    "en": "And then what happened?"
+    "es": "en tu paseo",
+    "en": "on your trip"
   },
   {
-    "es": "Bajamos la montaña y anduvimos por un rato hasta que nos acercamos a un bosque grande.",
-    "en": "We went down the mountain and walked for a while until we came near a large forest."
+    "es": "Nos divertimos mucho",
+    "en": "we had a lot of fun"
   },
   {
-    "es": "Habíamos olvidado la linterna y la brújula en la caverna.",
-    "en": "We had left the flashlight and the compass in the cave."
+    "es": "Pero no te imaginas",
+    "en": "but you can’t imagine"
   },
   {
-    "es": "¡Yo sabía que íbamos a perdernos!",
-    "en": "I knew we were going to get lost!"
+    "es": "lo que nos pasó",
+    "en": "what happened to us"
   },
   {
-    "es": "¿Y cómo volvieron entonces?",
-    "en": "So how did you get back?"
+    "es": "Qué sucedió",
+    "en": "what happened"
   },
   {
-    "es": "Al rato apareció un guardabosques (park ranger) que nos mostró hacia dónde ir.",
-    "en": "After a while, a park ranger appeared and showed us which way to go."
+    "es": "Cuando estábamos escalando",
+    "en": "while we were climbing"
   },
   {
-    "es": "Llegamos a la tienda al anochecer.",
-    "en": "We arrived at the tent at nightfall."
+    "es": "una montaña",
+    "en": "a mountain"
   },
   {
-    "es": "¡Ay, hijo, tus aventuras me asustan mucho!",
-    "en": "Oh, son, your adventures really scare me!"
+    "es": "vimos relámpagos",
+    "en": "we saw lightning"
   },
   {
-    "es": "En una hoja de papel escribe los números del 1 al 4.",
-    "en": "On a sheet of paper, write the numbers from 1 to 4."
+    "es": "oímos un trueno",
+    "en": "we heard a clap of thunder"
   },
   {
-    "es": "Escucha cada frase y escribe C si es cierta o F si es falsa.",
-    "en": "Listen to each statement and write C if it is true or F if it is false."
+    "es": "Luego comenzó",
+    "en": "then it started"
+  },
+  {
+    "es": "a caer granizo",
+    "en": "to hail"
+  },
+  {
+    "es": "No me digas",
+    "en": "you don’t say"
+  },
+  {
+    "es": "qué hicieron",
+    "en": "what did you do"
+  },
+  {
+    "es": "Nos refugiamos",
+    "en": "we took shelter"
+  },
+  {
+    "es": "en una caverna",
+    "en": "in a cave"
+  },
+  {
+    "es": "Una vez allí",
+    "en": "once there"
+  },
+  {
+    "es": "nos sentamos a hablar",
+    "en": "we sat down to talk"
+  },
+  {
+    "es": "mientras pasaba el mal tiempo",
+    "en": "while the bad weather passed"
+  },
+  {
+    "es": "Nos impresionó",
+    "en": "we were amazed by"
+  },
+  {
+    "es": "el tamaño del granizo",
+    "en": "the size of the hailstones"
+  },
+  {
+    "es": "Parecían",
+    "en": "they looked like"
+  },
+  {
+    "es": "bolas de golf",
+    "en": "golf balls"
+  },
+  {
+    "es": "Qué bueno",
+    "en": "how good"
+  },
+  {
+    "es": "que encontraron refugio",
+    "en": "that you found shelter"
+  },
+  {
+    "es": "pero ahí no terminó todo",
+    "en": "but that wasn’t the end of it"
+  },
+  {
+    "es": "Cuando dejó de llover",
+    "en": "when it stopped raining"
+  },
+  {
+    "es": "salimos de la caverna",
+    "en": "we left the cave"
+  },
+  {
+    "es": "comenzamos a bajar la montaña",
+    "en": "we began to go down the mountain"
+  },
+  {
+    "es": "El suelo estaba mojado",
+    "en": "the ground was wet"
+  },
+  {
+    "es": "perdió el equilibrio",
+    "en": "lost his balance"
+  },
+  {
+    "es": "pero no se cayó",
+    "en": "but he didn’t fall"
+  },
+  {
+    "es": "qué bien",
+    "en": "that’s good"
+  },
+  {
+    "es": "entonces qué pasó",
+    "en": "then what happened"
+  },
+  {
+    "es": "Bajamos la montaña",
+    "en": "we went down the mountain"
+  },
+  {
+    "es": "anduvimos por un rato",
+    "en": "we walked for a while"
+  },
+  {
+    "es": "hasta que nos acercamos",
+    "en": "until we came near"
+  },
+  {
+    "es": "a un bosque grande",
+    "en": "to a large forest"
+  },
+  {
+    "es": "Habíamos olvidado",
+    "en": "we had left behind"
+  },
+  {
+    "es": "la linterna y la brújula",
+    "en": "the flashlight and the compass"
+  },
+  {
+    "es": "en la caverna",
+    "en": "in the cave"
+  },
+  {
+    "es": "Yo sabía",
+    "en": "I knew"
+  },
+  {
+    "es": "que íbamos a perdernos",
+    "en": "that we were going to get lost"
+  },
+  {
+    "es": "cómo volvieron",
+    "en": "how did you get back"
+  },
+  {
+    "es": "Al rato",
+    "en": "after a while"
+  },
+  {
+    "es": "apareció un guardabosques",
+    "en": "a park ranger appeared"
+  },
+  {
+    "es": "que nos mostró",
+    "en": "who showed us"
+  },
+  {
+    "es": "hacia dónde ir",
+    "en": "which way to go"
+  },
+  {
+    "es": "Llegamos a la tienda",
+    "en": "we arrived at the tent"
+  },
+  {
+    "es": "tus aventuras",
+    "en": "your adventures"
+  },
+  {
+    "es": "me asustan mucho",
+    "en": "they really scare me"
+  },
+  {
+    "es": "del 1 al 4",
+    "en": "from 1 to 4"
+  },
+  {
+    "es": "escribe C si es cierta",
+    "en": "write C if it is true"
+  },
+  {
+    "es": "F si es falsa",
+    "en": "F if it is false"
   }
 ];
