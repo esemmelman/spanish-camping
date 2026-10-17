@@ -91,6 +91,8 @@ pages = {
 for number, sections in pages.items():
     content = []
     for heading, pairs in sections:
+        if heading.startswith('Activity '):
+            continue
         content.append(f'<h2>{escape(heading)}</h2>')
         for es, en in pairs:
             content.append(f'<article class="pair"><p class="es" lang="es">{escape(es)}</p><p class="en" lang="en"> - {escape(en)}</p></article>')

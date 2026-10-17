@@ -200,58 +200,6 @@ const phraseQuestions = [
     "en": "very clear and close"
   },
   {
-    "es": "En una hoja de papel",
-    "en": "on a sheet of paper"
-  },
-  {
-    "es": "escribe los números",
-    "en": "write the numbers"
-  },
-  {
-    "es": "del 1 al 6",
-    "en": "from 1 to 6"
-  },
-  {
-    "es": "Vas a escuchar",
-    "en": "you are going to listen"
-  },
-  {
-    "es": "a unos jóvenes",
-    "en": "to some young people"
-  },
-  {
-    "es": "hablar sobre el equipo de cámping",
-    "en": "talk about camping equipment"
-  },
-  {
-    "es": "Escucha cada frase",
-    "en": "listen to each statement"
-  },
-  {
-    "es": "escribe si es lógica o ilógica",
-    "en": "write whether it is logical or illogical"
-  },
-  {
-    "es": "del 1 al 5",
-    "en": "from 1 to 5"
-  },
-  {
-    "es": "cierta o falsa",
-    "en": "true or false"
-  },
-  {
-    "es": "según las fotos",
-    "en": "based on the photos"
-  },
-  {
-    "es": "Vas a oír",
-    "en": "you are going to hear"
-  },
-  {
-    "es": "cada frase dos veces",
-    "en": "each statement twice"
-  },
-  {
     "es": "le cuenta a su mamá",
     "en": "tells his mom"
   },
@@ -466,17 +414,5 @@ const phraseQuestions = [
   {
     "es": "me asustan mucho",
     "en": "they really scare me"
-  },
-  {
-    "es": "del 1 al 4",
-    "en": "from 1 to 4"
-  },
-  {
-    "es": "escribe C si es cierta",
-    "en": "write C if it is true"
-  },
-  {
-    "es": "F si es falsa",
-    "en": "F if it is false"
   }
 ];
