@@ -147,7 +147,7 @@ quiz = quiz.replace('</style>', '''    .answers { display: grid; gap: 18px; }
     .answer:disabled { cursor: default; opacity: 1; }
     button:focus-visible { outline: 4px solid #b06b13; outline-offset: 4px; }
     #question { font-size: clamp(36px, 5vw, 58px); margin-top: 20px; }
-    #feedback { font-weight: 700; }
+    #feedback { font-size: clamp(36px, 5vw, 58px); line-height: 1.35; font-weight: 700; }
     [hidden] { display: none !important; }
   </style>''')
 quiz = quiz.replace('</body>', '<script src="phrases-data.js"></script>\n<script src="phrases.js"></script>\n</body>')
