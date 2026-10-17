@@ -21,9 +21,14 @@
     .pair .en { font-weight: 700; color: #46565f; margin-top: 20px; padding-top: 20px; border-top: 1px solid #dce2d9; }
     footer { font-size: 20px; line-height: 1.6; padding-bottom: 48px; }
     @media print { body { background: white; } .pair { break-inside: avoid; } header { padding-top: 0; } }
+    .page-nav { width: min(1100px, 100%); margin: auto; padding: 24px; display: flex; flex-wrap: wrap; gap: 16px; }
+    .page-nav a { flex: 1 1 200px; text-align: center; padding: 24px 16px; border: 3px solid #173a32; border-radius: 14px; font-size: clamp(32px, 5vw, 44px); font-weight: 700; text-decoration: none; color: #173a32; background: #fffef8; }
+    .page-nav a[aria-current="page"], .page-nav a:hover { color: white; background: #173a32; }
+    .page-nav a:focus-visible { outline: 4px solid #b06b13; outline-offset: 4px; }
   </style>
 </head>
 <body>
+  <nav class="page-nav" aria-label="Textbook pages"><a href="index.html" aria-current="page">Page 22</a><a href="page23.html">Page 23</a><a href="page24.html">Page 24</a></nav>
   <header>
     <p class="eyebrow">Spanish → English · Page 22</p>
     <h1 lang="es">¡Cámping!</h1>
