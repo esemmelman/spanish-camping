@@ -1,6 +1,8 @@
 """Generate the bilingual study pages using Page 22's shared layout."""
 from pathlib import Path
 from html import escape
+from html import unescape
+import json
 import re
 
 root = Path(__file__).resolve().parent
@@ -18,6 +20,8 @@ def nav(page):
     for n, href in [(22, 'index.html'), (23, 'page23.html'), (24, 'page24.html')]:
         current = ' aria-current="page"' if n == page else ''
         links.append(f'<a href="{href}"{current}>Page {n}</a>')
+    current = ' aria-current="page"' if page == 'phrases' else ''
+    links.append(f'<a href="phrases.html"{current}>Phrases</a>')
     return '<nav class="page-nav" aria-label="Textbook pages">' + ''.join(links) + '</nav>'
 
 source = re.sub(r'\s*<nav class="page-nav".*?</nav>', '', source, flags=re.S)
@@ -96,3 +100,55 @@ for number, sections in pages.items():
     page = page.replace('<title>¡Cámping! — Spanish &amp; English</title>', f'<title>Page {number} — Spanish &amp; English Camping</title>')
     (root / f'page{number}.html').write_text(page, encoding='utf-8')
     print(f'Page {number}: {sum(len(pairs) for _, pairs in sections)} translation pairs')
+
+# Use the displayed translations as the quiz's single source of content.
+excluded = {'Vocabulario en contexto 1', 'veintidós', 'veinticuatro',
+            'Capítulo 1 · Días inolvidables', 'ESCUCHAR', 'Equipo de cámping',
+            'Ir de cámping', 'La aventura de Jairo y sus amigos'}
+questions = []
+seen = set()
+for number, filename in [(22, 'index.html'), (23, 'page23.html'), (24, 'page24.html')]:
+    text = (root / filename).read_text(encoding='utf-8')
+    for es, en in re.findall(r'<p class="es" lang="es">(.*?)</p><p class="en" lang="en"> - (.*?)</p>', text):
+        es, en = unescape(es), unescape(en)
+        if es in excluded or es in seen:
+            continue
+        seen.add(es)
+        questions.append({'es': es, 'en': en, 'page': number})
+(root / 'phrases-data.js').write_text('const phraseQuestions = ' + json.dumps(questions, ensure_ascii=False, indent=2) + ';\n', encoding='utf-8')
+quiz = source.replace(nav(22), nav('phrases'))
+quiz = quiz.replace('<title>¡Cámping! — Spanish &amp; English</title>', '<title>Phrases Quiz — Spanish &amp; English</title>')
+quiz = re.sub(r'<header>.*?</header>', '''<header>
+    <p class="eyebrow">Practice · Pages 22–24</p>
+    <h1>Phrases</h1>
+    <p class="intro">Choose the English translation. Each answer is scored immediately. Questions and answers are shuffled each time.</p>
+  </header>''', quiz, flags=re.S)
+quiz = re.sub(r'<main>.*?</main>', '''<main>
+    <p id="progress" class="intro"></p>
+    <p id="score" class="intro" aria-live="polite"></p>
+    <section class="pair" aria-labelledby="question">
+      <p id="source-page" class="intro"></p>
+      <h2 id="question" lang="es" tabindex="-1"></h2>
+      <div id="answers" class="answers" aria-label="English translations"></div>
+    </section>
+    <p id="feedback" class="intro" role="status"></p>
+    <button id="next" class="quiz-button" type="button" hidden>Next phrase</button>
+    <button id="restart" class="quiz-button" type="button" hidden>Play again</button>
+    <noscript><p class="intro">Enable JavaScript to use the phrases quiz.</p></noscript>
+  </main>''', quiz, flags=re.S)
+quiz = re.sub(r'<footer>.*?</footer>', '<footer>Practice phrases from all three textbook pages.</footer>', quiz, flags=re.S)
+quiz = quiz.replace('</style>', '''    .answers { display: grid; gap: 18px; }
+    .quiz-button, .answer { font: inherit; font-size: clamp(28px, 4vw, 44px); line-height: 1.35; font-weight: 700; border: 3px solid #173a32; border-radius: 12px; padding: 24px; cursor: pointer; background: #fffef8; color: #173a32; }
+    .answer { text-align: left; width: 100%; }
+    .answer:hover:enabled, .quiz-button:hover { background: #e0eadb; }
+    .answer.correct { background: #d9edcf; border-color: #315d20; }
+    .answer.incorrect { background: #fce1dc; border-color: #a32a19; }
+    .answer:disabled { cursor: default; opacity: 1; }
+    button:focus-visible { outline: 4px solid #b06b13; outline-offset: 4px; }
+    #question { font-size: clamp(36px, 5vw, 58px); margin-top: 20px; }
+    #feedback { font-weight: 700; }
+    [hidden] { display: none !important; }
+  </style>''')
+quiz = quiz.replace('</body>', '<script src="phrases-data.js"></script>\n<script src="phrases.js"></script>\n</body>')
+(root / 'phrases.html').write_text(quiz, encoding='utf-8')
+print(f'Quiz: {len(questions)} unique phrases')
